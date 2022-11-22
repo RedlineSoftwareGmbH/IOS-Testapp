@@ -38,8 +38,9 @@ async function getapi() {
 	const response = await fetch("https://api.github.com/repos/RedlineSoftwareGmbH/Redline-IOS/commits/main");
 	// Storing data in form of JSON
 	var data = await response.json();
-    let date = data["commit"]["author"]["date"]
-	document.getElementById('version').innerHTML = new Date(date).toLocaleString()
+    	let date = data["commit"]["author"]["date"]
+	let message = data["commit"]["message"]
+	document.getElementById('version').innerHTML = new Date(date).toLocaleString() + ", " + message
 }
 getapi();
 </script>
