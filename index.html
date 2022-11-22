@@ -29,6 +29,20 @@
 	<div>
 		<h2 class="title">Testversion der Redline-App</h2>
 		<a href="itms-services://?action=download-manifest&url=https://redlinesoftwaregmbh.github.io/Redline-IOS/manifest.plist" class="button">IOS App</a>
+		
+<p id="version"></p>
+<script>
+// Defining async function
+async function getapi() {
+	// Storing response
+	const response = await fetch("https://api.github.com/repos/RedlineSoftwareGmbH/Redline-IOS/commits/main");
+	// Storing data in form of JSON
+	var data = await response.json();
+    let date = data["commit"]["author"]["date"]
+	document.getElementById('version').innerHTML = new Date(date).toLocaleString()
+}
+getapi();
+</script>
 	</div>
 </body>
 </html>
