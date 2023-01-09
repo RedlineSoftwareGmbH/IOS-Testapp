@@ -11,7 +11,19 @@
 		font-size: 3em;
 		margin: 2em 2em;
 	}
-	.button {
+	.buttonAndroid {
+		background-color: #4c6aaf; /* Blue */
+		border: none;
+		color: white;
+		padding: 0.5em 1em;
+		text-align: center;
+		text-decoration: none;
+		display: block;
+		font-size: 2em;
+		font-weight: 700;
+		margin: 2em 2em 0em 2em;
+	}
+	.buttonIOS {
 		background-color: #4CAF50; /* Green */
 		border: none;
 		color: white;
@@ -21,33 +33,48 @@
 		display: block;
 		font-size: 2em;
 		font-weight: 700;
-		margin: 4em 2em;
+		margin: 2em 2em 0em 2em;
 	}
 	p {
 		display: block;
 		text-align: center;
 		font-size: 1.5em;
+		margin: 0.3em 2em;
 	}
     </style>
   </head>
 <body>
 	<div>
 		<h2 class="title">Testversion der Redline-App</h2>
-		<a href="itms-services://?action=download-manifest&url=https://redlinesoftwaregmbh.github.io/Redline-IOS/manifest.plist" class="button">IOS App</a>
-		
-<p id="version"></p>
+		<a href="https://redlinesoftwaregmbh.github.io/Redline-Android/app-betatest10.apk" class="buttonAndroid">Android App</a>
+		<p id="versionAndroid"></p>
+		<a href="itms-services://?action=download-manifest&url=https://redlinesoftwaregmbh.github.io/Redline-IOS/manifest.plist" class="buttonIOS">IOS App</a>
+		<p id="versionIOS"></p>
 <script>
 // Defining async function
-async function getapi() {
+async function getapiAndroid() {
+	// Storing response
+	const responseDeploy = await fetch("https://api.github.com/repos/RedlineSoftwareGmbH/Redline-Android/deployments");
+	// Storing data in form of JSON
+	var dataDeploy = await responseDeploy.json();
+	
+	let date = dataDeploy[0]["updated_at"]
+	document.getElementById('versionAndroid').innerHTML = new Date(date).toLocaleString()
+}
+</script>
+<script>
+// Defining async function
+async function getapiIOS() {
 	// Storing response
 	const responseDeploy = await fetch("https://api.github.com/repos/RedlineSoftwareGmbH/Redline-IOS/deployments");
 	// Storing data in form of JSON
 	var dataDeploy = await responseDeploy.json();
 	
 	let date = dataDeploy[0]["updated_at"]
-	document.getElementById('version').innerHTML = new Date(date).toLocaleString()
+	document.getElementById('versionIOS').innerHTML = new Date(date).toLocaleString()
 }
-getapi();
+getapiAndroid();
+getapiIOS();
 </script>
 	</div>
 </body>
