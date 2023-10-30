@@ -46,15 +46,16 @@
 <body>
 	<div>
 		<h2 class="title">Testversion der Redline-App</h2>
-		<a href="https://redlinesoftwaregmbh.github.io/Redline-Android/app-betatest10.apk" class="buttonAndroid">Android App</a>
+		<a href="https://redlinesoftwaregmbh.github.io/Android-Testapp/app-betatest.apk" class="buttonAndroid">Android App</a>
+		<a href="https://redlinesoftwaregmbh.github.io/Android-Testapp/app-feature.apk" class="buttonAndroid">Android App (Feature)</a>
 		<p id="versionAndroid"></p>
-		<a href="itms-services://?action=download-manifest&url=https://redlinesoftwaregmbh.github.io/Redline-IOS/manifest.plist" class="buttonIOS">IOS App</a>
+		<a href="itms-services://?action=download-manifest&url=https://redlinesoftwaregmbh.github.io/IOS-Testapp/manifest.plist" class="buttonIOS">IOS App</a>
 		<p id="versionIOS"></p>
 <script>
 // Defining async function
 async function getapiAndroid() {
 	// Storing response
-	const responseDeploy = await fetch("https://api.github.com/repos/RedlineSoftwareGmbH/Redline-Android/deployments");
+	const responseDeploy = await fetch("https://api.github.com/repos/RedlineSoftwareGmbH/Android-Testapp/deployments");
 	// Storing data in form of JSON
 	var dataDeploy = await responseDeploy.json();
 	
@@ -66,7 +67,7 @@ async function getapiAndroid() {
 // Defining async function
 async function getapiIOS() {
 	// Storing response
-	const responseDeploy = await fetch("https://api.github.com/repos/RedlineSoftwareGmbH/Redline-IOS/deployments");
+	const responseDeploy = await fetch("https://api.github.com/repos/RedlineSoftwareGmbH/IOS-Testapp/deployments");
 	// Storing data in form of JSON
 	var dataDeploy = await responseDeploy.json();
 	
