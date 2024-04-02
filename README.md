@@ -13,6 +13,7 @@
 7. Danach wird automatisch eine GitHub Action getriggert, welche die "Download Website" aktualisiert
 
 ## Testflight
+Versionsnummer gegebenenfalls anpassen
 1. Im XCode BuildType (oben in der Leiste) auf Release umstellen
 2. danach unter "Product > Archive" die App builden lassen
 3. Wenns fertig ist
@@ -23,4 +24,7 @@
    1. App für weitere Gruppen freigeben
    2. Redline Small (Timo private Adresse) / Redline Intern (Redline Tester Team, Yves Daniel, Timo privat)
    3. Testanweisung angeben, zur Prüfung übermitteln
-   4. Dauert normalerweise wenige Minuten bis ein paar Stunden
+   4. Dauert normalerweise wenige Stunden
+
+Release Prüfung dauert normalerweise nochmals einige Stunden bis wenige Tage.
+ - Login Daten überprüfen, ob sie noch aktiv sind
