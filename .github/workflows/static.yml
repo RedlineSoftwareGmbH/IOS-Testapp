@@ -31,6 +31,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - uses: chrnorm/deployment-action@v2
+        name: Create GitHub deployment
+        id: deploymentJira
+        with:
+          token: '${{ github.token }}'
+          environment: development
+          
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
